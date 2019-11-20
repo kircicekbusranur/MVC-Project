@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CosmeCriticDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AltKategoriler">
+    <Key>
+      <PropertyRef Name="AltKategoriID" />
+    </Key>
+    <Property Name="AltKategoriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AltKategoriAdi" Type="nvarchar(max)" />
+    <Property Name="AltKategoriDurum" Type="nvarchar(max)" />
+    <Property Name="KategoriId" Type="int" Nullable="false" />
+    <Property Name="Markalar_MarkaID" Type="int" />
+  </EntityType>
+  <EntityType Name="Kategoriler">
+    <Key>
+      <PropertyRef Name="KategoriID" />
+    </Key>
+    <Property Name="KategoriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KategoriAdi" Type="nvarchar(max)" />
+    <Property Name="Aciklama" Type="nvarchar(max)" />
+    <Property Name="KategoriDurum" Type="int" Nullable="false" />
+    <Property Name="Markalar_MarkaID" Type="int" />
+  </EntityType>
+  <EntityType Name="Markalar">
+    <Key>
+      <PropertyRef Name="MarkaID" />
+    </Key>
+    <Property Name="MarkaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MarkaAdi" Type="nvarchar(max)" />
+    <Property Name="MarkaAciklama" Type="nvarchar(max)" />
+    <Property Name="MarkaLogo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="OzellikDetay">
+    <Key>
+      <PropertyRef Name="OzellikID" />
+    </Key>
+    <Property Name="OzellikID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OzellikAdi" Type="nvarchar(max)" />
+    <Property Name="Aciklama" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Resimler">
+    <Key>
+      <PropertyRef Name="ResimID" />
+    </Key>
+    <Property Name="ResimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuyukYol" Type="nvarchar(max)" />
+    <Property Name="OrtaYol" Type="nvarchar(max)" />
+    <Property Name="KucukYol" Type="nvarchar(max)" />
+    <Property Name="UrunId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="UrunID" />
+    </Key>
+    <Property Name="UrunID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AltKategoriId" Type="int" Nullable="false" />
+    <Property Name="MarkaId" Type="int" Nullable="false" />
+    <Property Name="UrunAdi" Type="nvarchar(max)" />
+    <Property Name="UrunFiyati" Type="float" Nullable="false" />
+    <Property Name="UrunAciklama" Type="nvarchar(max)" />
+    <Property Name="UrunDurum" Type="int" Nullable="false" />
+    <Property Name="Kategoriler_KategoriID" Type="int" />
+  </EntityType>
+  <EntityType Name="UrunOzellik">
+    <Key>
+      <PropertyRef Name="UrunId" />
+      <PropertyRef Name="OzellikId" />
+    </Key>
+    <Property Name="UrunId" Type="int" Nullable="false" />
+    <Property Name="OzellikId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UrunPuan">
+    <Key>
+      <PropertyRef Name="PuanID" />
+      <PropertyRef Name="UyeId" />
+      <PropertyRef Name="UrunId" />
+    </Key>
+    <Property Name="PuanID" Type="int" Nullable="false" />
+    <Property Name="UyeId" Type="int" Nullable="false" />
+    <Property Name="UrunId" Type="int" Nullable="false" />
+    <Property Name="PuanDegeri" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UrunYorum">
+    <Key>
+      <PropertyRef Name="YorumId" />
+      <PropertyRef Name="UrunId" />
+      <PropertyRef Name="UyeId" />
+    </Key>
+    <Property Name="YorumId" Type="int" Nullable="false" />
+    <Property Name="UrunId" Type="int" Nullable="false" />
+    <Property Name="UyeId" Type="int" Nullable="false" />
+    <Property Name="YorumMetni" Type="nvarchar(max)" />
+    <Property Name="YorumTarih" Type="datetime" Nullable="false" />
+    <Property Name="YorumDurum" Type="int" Nullable="false" />
+    <Property Name="YorumBegeniSayisi" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UyeFavoriListe">
+    <Key>
+      <PropertyRef Name="FavListeID" />
+    </Key>
+    <Property Name="FavListeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UyeId" Type="int" Nullable="false" />
+    <Property Name="UrunId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Uyeler">
+    <Key>
+      <PropertyRef Name="UyeID" />
+    </Key>
+    <Property Name="UyeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UyeAdi" Type="nvarchar(max)" />
+    <Property Name="UyeSoyadi" Type="nvarchar(max)" />
+    <Property Name="UyeEmail" Type="nvarchar(max)" />
+    <Property Name="UyeParola" Type="nvarchar(max)" />
+    <Property Name="UyeDgtTarih" Type="datetime" Nullable="false" />
+    <Property Name="UyeDurum" Type="int" Nullable="false" />
+    <Property Name="UyeCinsiyet" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_dbo_AltKategoriler_dbo_Kategoriler_KategoriId">
+    <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AltKategoriler" Type="Self.AltKategoriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategoriler">
+        <PropertyRef Name="KategoriID" />
+      </Principal>
+      <Dependent Role="AltKategoriler">
+        <PropertyRef Name="KategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AltKategoriler_dbo_Markalar_Markalar_MarkaID">
+    <End Role="Markalar" Type="Self.Markalar" Multiplicity="0..1" />
+    <End Role="AltKategoriler" Type="Self.AltKategoriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Markalar">
+        <PropertyRef Name="MarkaID" />
+      </Principal>
+      <Dependent Role="AltKategoriler">
+        <PropertyRef Name="Markalar_MarkaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Kategoriler_dbo_Markalar_Markalar_MarkaID">
+    <End Role="Markalar" Type="Self.Markalar" Multiplicity="0..1" />
+    <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Markalar">
+        <PropertyRef Name="MarkaID" />
+      </Principal>
+      <Dependent Role="Kategoriler">
+        <PropertyRef Name="Markalar_MarkaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Resimler_dbo_Urunler_UrunId">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Resimler" Type="Self.Resimler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="Resimler">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Urunler_dbo_AltKategoriler_AltKategoriId">
+    <End Role="AltKategoriler" Type="Self.AltKategoriler" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AltKategoriler">
+        <PropertyRef Name="AltKategoriID" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="AltKategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Urunler_dbo_Kategoriler_Kategoriler_KategoriID">
+    <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="0..1" />
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategoriler">
+        <PropertyRef Name="KategoriID" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="Kategoriler_KategoriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Urunler_dbo_Markalar_MarkaId">
+    <End Role="Markalar" Type="Self.Markalar" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Markalar">
+        <PropertyRef Name="MarkaID" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="MarkaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UrunOzellik_dbo_OzellikDetay_OzellikId">
+    <End Role="OzellikDetay" Type="Self.OzellikDetay" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UrunOzellik" Type="Self.UrunOzellik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OzellikDetay">
+        <PropertyRef Name="OzellikID" />
+      </Principal>
+      <Dependent Role="UrunOzellik">
+        <PropertyRef Name="OzellikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UrunOzellik_dbo_Urunler_UrunId">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UrunOzellik" Type="Self.UrunOzellik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="UrunOzellik">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UrunPuan_dbo_Urunler_UrunId">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UrunPuan" Type="Self.UrunPuan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="UrunPuan">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UrunPuan_dbo_Uyeler_UyeId">
+    <End Role="Uyeler" Type="Self.Uyeler" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UrunPuan" Type="Self.UrunPuan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uyeler">
+        <PropertyRef Name="UyeID" />
+      </Principal>
+      <Dependent Role="UrunPuan">
+        <PropertyRef Name="UyeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UrunYorum_dbo_Urunler_UrunId">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UrunYorum" Type="Self.UrunYorum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="UrunYorum">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UrunYorum_dbo_Uyeler_UyeId">
+    <End Role="Uyeler" Type="Self.Uyeler" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UrunYorum" Type="Self.UrunYorum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uyeler">
+        <PropertyRef Name="UyeID" />
+      </Principal>
+      <Dependent Role="UrunYorum">
+        <PropertyRef Name="UyeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UyeFavoriListe_dbo_Urunler_UrunId">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UyeFavoriListe" Type="Self.UyeFavoriListe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="UyeFavoriListe">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UyeFavoriListe_dbo_Uyeler_UyeId">
+    <End Role="Uyeler" Type="Self.Uyeler" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UyeFavoriListe" Type="Self.UyeFavoriListe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uyeler">
+        <PropertyRef Name="UyeID" />
+      </Principal>
+      <Dependent Role="UyeFavoriListe">
+        <PropertyRef Name="UyeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CosmeCriticDBModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AltKategoriler" EntityType="Self.AltKategoriler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Markalar" EntityType="Self.Markalar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OzellikDetay" EntityType="Self.OzellikDetay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Resimler" EntityType="Self.Resimler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urunler" EntityType="Self.Urunler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UrunOzellik" EntityType="Self.UrunOzellik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UrunPuan" EntityType="Self.UrunPuan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UrunYorum" EntityType="Self.UrunYorum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UyeFavoriListe" EntityType="Self.UyeFavoriListe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Uyeler" EntityType="Self.Uyeler" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_AltKategoriler_dbo_Kategoriler_KategoriId" Association="Self.FK_dbo_AltKategoriler_dbo_Kategoriler_KategoriId">
+      <End Role="Kategoriler" EntitySet="Kategoriler" />
+      <End Role="AltKategoriler" EntitySet="AltKategoriler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AltKategoriler_dbo_Markalar_Markalar_MarkaID" Association="Self.FK_dbo_AltKategoriler_dbo_Markalar_Markalar_MarkaID">
+      <End Role="Markalar" EntitySet="Markalar" />
+      <End Role="AltKategoriler" EntitySet="AltKategoriler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Kategoriler_dbo_Markalar_Markalar_MarkaID" Association="Self.FK_dbo_Kategoriler_dbo_Markalar_Markalar_MarkaID">
+      <End Role="Markalar" EntitySet="Markalar" />
+      <End Role="Kategoriler" EntitySet="Kategoriler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Resimler_dbo_Urunler_UrunId" Association="Self.FK_dbo_Resimler_dbo_Urunler_UrunId">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="Resimler" EntitySet="Resimler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Urunler_dbo_AltKategoriler_AltKategoriId" Association="Self.FK_dbo_Urunler_dbo_AltKategoriler_AltKategoriId">
+      <End Role="AltKategoriler" EntitySet="AltKategoriler" />
+      <End Role="Urunler" EntitySet="Urunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Urunler_dbo_Kategoriler_Kategoriler_KategoriID" Association="Self.FK_dbo_Urunler_dbo_Kategoriler_Kategoriler_KategoriID">
+      <End Role="Kategoriler" EntitySet="Kategoriler" />
+      <End Role="Urunler" EntitySet="Urunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Urunler_dbo_Markalar_MarkaId" Association="Self.FK_dbo_Urunler_dbo_Markalar_MarkaId">
+      <End Role="Markalar" EntitySet="Markalar" />
+      <End Role="Urunler" EntitySet="Urunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UrunOzellik_dbo_OzellikDetay_OzellikId" Association="Self.FK_dbo_UrunOzellik_dbo_OzellikDetay_OzellikId">
+      <End Role="OzellikDetay" EntitySet="OzellikDetay" />
+      <End Role="UrunOzellik" EntitySet="UrunOzellik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UrunOzellik_dbo_Urunler_UrunId" Association="Self.FK_dbo_UrunOzellik_dbo_Urunler_UrunId">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="UrunOzellik" EntitySet="UrunOzellik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UrunPuan_dbo_Urunler_UrunId" Association="Self.FK_dbo_UrunPuan_dbo_Urunler_UrunId">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="UrunPuan" EntitySet="UrunPuan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UrunPuan_dbo_Uyeler_UyeId" Association="Self.FK_dbo_UrunPuan_dbo_Uyeler_UyeId">
+      <End Role="Uyeler" EntitySet="Uyeler" />
+      <End Role="UrunPuan" EntitySet="UrunPuan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UrunYorum_dbo_Urunler_UrunId" Association="Self.FK_dbo_UrunYorum_dbo_Urunler_UrunId">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="UrunYorum" EntitySet="UrunYorum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UrunYorum_dbo_Uyeler_UyeId" Association="Self.FK_dbo_UrunYorum_dbo_Uyeler_UyeId">
+      <End Role="Uyeler" EntitySet="Uyeler" />
+      <End Role="UrunYorum" EntitySet="UrunYorum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UyeFavoriListe_dbo_Urunler_UrunId" Association="Self.FK_dbo_UyeFavoriListe_dbo_Urunler_UrunId">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="UyeFavoriListe" EntitySet="UyeFavoriListe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UyeFavoriListe_dbo_Uyeler_UyeId" Association="Self.FK_dbo_UyeFavoriListe_dbo_Uyeler_UyeId">
+      <End Role="Uyeler" EntitySet="Uyeler" />
+      <End Role="UyeFavoriListe" EntitySet="UyeFavoriListe" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,63 @@
+﻿
+@{
+                /**/
+
+                ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+<div class="col-sm-3">
+
+    @foreach (var item in (List<CosmeCritic.Client.Models.Data.AltKategoriler>)Session["AltKategori"])
+    {
+        <div class="btn-group">
+            <a href="/Urun/Index/@item.AltKategoriID" class="btn btn-primary active">
+                <font> @item.AltKategoriAdi</font>
+            </a>
+
+        </div>
+        <br />
+    }
+
+</div>
+
+<div class="row">
+    <div class="col-sm-12 ">
+        <img src="~/Images/slider2.png" />
+    </div>
+    <div class="box col-sm-12 ">
+        <div class="container">
+            <div class="tesla-carousel" data-tesla-plugin="carousel" data-tesla-container=".tesla-carousel-items" data-tesla-item=">div" data-tesla-autoplay="false" data-tesla-rotate="false">
+                <div class="site-title">
+                    <ul class="wrapper-arrows">
+                        <li><i class="icon-517 prev" title="left arrow"></i></li>
+                        <li><i class="icon-501 next" title="right arrow"></i></li>
+                    </ul>
+                    <div class="site-inside"><span>xxx</span></div>
+                </div>
+                <div class="row">
+                    <div class="tesla-carousel-items">
+                        @foreach (var item in (List<CosmeCritic.Client.Models.Data.Urunler>)Session["AltKatUrun"])
+                        {
+                            <div class="col-md-3 col-xs-6 ">
+                                <div class="product">
+                                    <div class="product-cover">
+                                        <div class="product-cover-hover"><span><a href="/Home/UrunDetay/@item.UrunAdi">Görüntüle</a></span></div>
+                                        <img src="~/Images/slider1.png" alt="@item.UrunAdi" />
+                                    </div>
+                                    <div class="product-details">
+                                        <h1><a href="/Home/UrunDetay/@item.UrunAdi"><font color="black">@item.UrunAdi</font></a></h1>
+                                        <div class="product-price">
+                                            <a href="#" class="sepeteAt" data-id="@item.UrunID"><i class="icon-257" title="Sepete Ekle"></i></a>
+                                            <font color="black"> @item.UrunFiyati</font>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

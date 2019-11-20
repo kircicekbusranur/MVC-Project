@@ -1,0 +1,27 @@
+﻿
+@{
+                /**/
+
+                ViewBag.Title = "AltKategori";
+                Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+<div class="col-sm-3">
+
+    @foreach (var item in (List<CosmeCritic.Client.Models.Data.AltKategoriler>)Session["AltKategori"])
+    {
+        <div class="btn-group">
+            <a href="/Urun/Index/@item.AltKategoriID" class="btn btn-primary active">
+                <font> @item.AltKategoriAdi</font>
+            </a>
+
+        </div>
+        <br />
+    }
+
+</div>
+
+<div class="row">
+    <div class="col-sm-12 ">
+        <img src="~/Images/slider2.png" />
+    </div>
+</div>

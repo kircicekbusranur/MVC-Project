@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css" />
+    <link href="~/Css/SolMenu.css" rel="stylesheet" />
+    <link href="~/Css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="~/Css/b4megamenu.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <script src="https://unpkg.com/ionicons@4.4.2/dist/ionicons.js"></script>
+    <style>
+        .dropdown-container {
+            display: none;
+            background-color: #262626;
+            padding-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><img src="~/Images/logo.png" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/Index">Anasayfa <span class="sr-only">(current)</span></a>
+                </li>
+                @foreach (var item in (List<CosmeCritic.Client.Models.Data.Kategoriler>)Session["Kategoriler"])
+                {
+                    if (@item.KategoriID == 1 || @item.KategoriID == 2 || @item.KategoriID == 3 || @item.KategoriID == 5 || @item.KategoriID == 14)
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="/AltMenu/AltKategori/@item.KategoriID">
+
+                                @item.KategoriAdi
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <div class="btn-group mr-sm-1">
+                    <button type="button" class="btn btn-danger">Giriş Yap</button>
+                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Üye Girişi</a>
+                        <a class="dropdown-item" href="#">Yeni Üye</a>
+                    </div>
+                </div>
+
+                <input class="form-control mr-sm-1" type="search" placeholder="Ara" aria-label="Search">
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Ara</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container col-sm-12">
+        <div class="row">
+            <div class="col-sm-2 bg-transparent">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    @foreach (var item in (List<CosmeCritic.Client.Models.Data.Kategoriler>)Session["Kategoriler"])
+                    {
+                        <a href="#"><font color="black">@item.KategoriAdi</font></a>
+                    }
+                </div>
+                <span style="font-size:23px;cursor:pointer" onclick="openNav()">
+                    &#9776;Kategori Menüsü
+                    <img src="~/Images/2.jpg" />
+                    <img src="~/Images/1.jpg" />
+                    <img src="~/Images/3.jpg" />
+                </span>
+            </div>
+            <div class="col-sm-10 bg-transparent">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="container col-sm-12 ">
+            <div class="row">
+                <div class="col-sm-2 bg-white">
+                </div>
+                <div class="col-sm-10 bg-white">
+
+                </div>
+
+            </div>
+        </div>
+        <div class="container col-sm-12">
+            <div class="row">
+                <div class="footer col-sm-12">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2 col-xs-6">
+                                <ul class="socials">
+                                    <li><a href="#"><img src="~/Images/facebook.png" alt="facebook" />Facebook</a></li>
+                                    <li><a href="#"><img src="~/Images/twitter.png" alt="twitter" />Twitter</a></li>
+                                    <li><a href="#"><img src="~/Images/youtube.png" alt="youtube" />Youtube</a></li>
+                                    <li><a href="#"><img src="~/Images/googleplus.png" alt="google" />Google+</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-2 col-xs-6">
+                                <ul>
+                                    <li><a href="#">Üye Ol</a></li>
+                                    <li><a href="#">Bizimle İleşime Geçin</a></li>
+                                    <li><a href="#">SSS</a></li>
+                                    <li><a href="#">Bize Sor</a></li>
+                                    <li><a href="#">Hakkımızda</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-2 col-xs-6">
+                                <ul>
+                                    <li><a href="#">Şartlar ve Koşullar</a></li>
+                                    <li><a href="#">Güvenlik</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-2 col-xs-6">
+                                <ul class="menu-item">
+                                    <li><a href="#">ANASAYFA</a></li>
+                                    <li><a href="#">KATEGORİ MENÜSÜ</a></li>
+                                    <li><a href="#">İLETİŞİM</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="subscription">
+                                    <div class="subscription-title">ÜYE OLUN</div>
+                                    <form class="subscription" id="newsletter" method="post">
+                                        <input type="text" name="newsletter-name" placeholder="Ad Soyad" class="subscription-line">
+                                        <input type="text" name="newsletter-email" placeholder="E-mail" class="subscription-line">
+                                        <input type="submit" value="GÖNDER" class="button-5">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="mini-footer">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    Copyright 2019 COSMECRITIC &nbsp;  &nbsp;  &nbsp; Designed <a href="http://www.teslathemes.com">K & C</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-right">
+                                        <img src="~/Images/payment.png" alt="payment systems" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

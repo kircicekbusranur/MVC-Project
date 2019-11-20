@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CalisanDB2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Calisan">
+    <Key>
+      <PropertyRef Name="CalisanId" />
+    </Key>
+    <Property Name="CalisanId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CalisanAd" Type="nvarchar(max)" />
+    <Property Name="CalisanSoyad" Type="nvarchar(max)" />
+    <Property Name="DogumTarihi" Type="datetime" Nullable="false" />
+    <Property Name="UnvanId" Type="int" Nullable="false" />
+    <Property Name="EgitimId" Type="int" Nullable="false" />
+    <Property Name="IlceId" Type="int" Nullable="false" />
+    <Property Name="KanGrupId" Type="int" Nullable="false" />
+    <Property Name="YoneticiMi" Type="bit" Nullable="false" />
+    <Property Name="YoneticiId" Type="int" />
+  </EntityType>
+  <EntityType Name="Egitim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Ilce">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SehirId" Type="int" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="KanGrup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Sehir">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Unvan">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_dbo_Calisan_dbo_Calisan_YoneticiId">
+    <End Role="Calisan" Type="Self.Calisan" Multiplicity="0..1" />
+    <End Role="Calisan1" Type="Self.Calisan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Calisan">
+        <PropertyRef Name="CalisanId" />
+      </Principal>
+      <Dependent Role="Calisan1">
+        <PropertyRef Name="YoneticiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Calisan_dbo_Egitim_EgitimId">
+    <End Role="Egitim" Type="Self.Egitim" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Calisan" Type="Self.Calisan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Egitim">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Calisan">
+        <PropertyRef Name="EgitimId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Calisan_dbo_Ilce_IlceId">
+    <End Role="Ilce" Type="Self.Ilce" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Calisan" Type="Self.Calisan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ilce">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Calisan">
+        <PropertyRef Name="IlceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Calisan_dbo_KanGrup_KanGrupId">
+    <End Role="KanGrup" Type="Self.KanGrup" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Calisan" Type="Self.Calisan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KanGrup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Calisan">
+        <PropertyRef Name="KanGrupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Calisan_dbo_Unvan_UnvanId">
+    <End Role="Unvan" Type="Self.Unvan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Calisan" Type="Self.Calisan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unvan">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Calisan">
+        <PropertyRef Name="UnvanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Ilce_dbo_Sehir_SehirId">
+    <End Role="Sehir" Type="Self.Sehir" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ilce" Type="Self.Ilce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sehir">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ilce">
+        <PropertyRef Name="SehirId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CalisanDB2ModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Calisan" EntityType="Self.Calisan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Egitim" EntityType="Self.Egitim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ilce" EntityType="Self.Ilce" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KanGrup" EntityType="Self.KanGrup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sehir" EntityType="Self.Sehir" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Unvan" EntityType="Self.Unvan" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Calisan_dbo_Calisan_YoneticiId" Association="Self.FK_dbo_Calisan_dbo_Calisan_YoneticiId">
+      <End Role="Calisan" EntitySet="Calisan" />
+      <End Role="Calisan1" EntitySet="Calisan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Calisan_dbo_Egitim_EgitimId" Association="Self.FK_dbo_Calisan_dbo_Egitim_EgitimId">
+      <End Role="Egitim" EntitySet="Egitim" />
+      <End Role="Calisan" EntitySet="Calisan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Calisan_dbo_Ilce_IlceId" Association="Self.FK_dbo_Calisan_dbo_Ilce_IlceId">
+      <End Role="Ilce" EntitySet="Ilce" />
+      <End Role="Calisan" EntitySet="Calisan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Calisan_dbo_KanGrup_KanGrupId" Association="Self.FK_dbo_Calisan_dbo_KanGrup_KanGrupId">
+      <End Role="KanGrup" EntitySet="KanGrup" />
+      <End Role="Calisan" EntitySet="Calisan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Calisan_dbo_Unvan_UnvanId" Association="Self.FK_dbo_Calisan_dbo_Unvan_UnvanId">
+      <End Role="Unvan" EntitySet="Unvan" />
+      <End Role="Calisan" EntitySet="Calisan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Ilce_dbo_Sehir_SehirId" Association="Self.FK_dbo_Ilce_dbo_Sehir_SehirId">
+      <End Role="Sehir" EntitySet="Sehir" />
+      <End Role="Ilce" EntitySet="Ilce" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

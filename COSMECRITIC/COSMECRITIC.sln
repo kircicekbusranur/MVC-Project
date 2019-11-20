@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COSMECRITIC", "COSMECRITIC\COSMECRITIC.csproj", "{D7197DA2-235E-43DE-A1A7-B7A3152ADF0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmeCritic.Client", "CosmeCritic.Client\CosmeCritic.Client.csproj", "{BD841A15-AC9E-44F7-AA66-AE34B23C5764}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7197DA2-235E-43DE-A1A7-B7A3152ADF0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7197DA2-235E-43DE-A1A7-B7A3152ADF0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7197DA2-235E-43DE-A1A7-B7A3152ADF0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7197DA2-235E-43DE-A1A7-B7A3152ADF0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD841A15-AC9E-44F7-AA66-AE34B23C5764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD841A15-AC9E-44F7-AA66-AE34B23C5764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD841A15-AC9E-44F7-AA66-AE34B23C5764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD841A15-AC9E-44F7-AA66-AE34B23C5764}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EB27131-E4FA-4F4C-8617-FC10C0D2C351}
+	EndGlobalSection
+EndGlobal

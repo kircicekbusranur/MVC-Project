@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CalisanDB2ModelStoreContainer" CdmEntityContainer="CalisanDB2Entities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="CalisanDB2Model.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Calisan">
+      <EntityTypeMapping TypeName="CalisanDB2Model.Calisan">
+        <MappingFragment StoreEntitySet="Calisan">
+          <ScalarProperty Name="CalisanId" ColumnName="CalisanId" />
+          <ScalarProperty Name="CalisanAd" ColumnName="CalisanAd" />
+          <ScalarProperty Name="CalisanSoyad" ColumnName="CalisanSoyad" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="UnvanId" ColumnName="UnvanId" />
+          <ScalarProperty Name="EgitimId" ColumnName="EgitimId" />
+          <ScalarProperty Name="IlceId" ColumnName="IlceId" />
+          <ScalarProperty Name="KanGrupId" ColumnName="KanGrupId" />
+          <ScalarProperty Name="YoneticiMi" ColumnName="YoneticiMi" />
+          <ScalarProperty Name="YoneticiId" ColumnName="YoneticiId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Egitim">
+      <EntityTypeMapping TypeName="CalisanDB2Model.Egitim">
+        <MappingFragment StoreEntitySet="Egitim">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ilce">
+      <EntityTypeMapping TypeName="CalisanDB2Model.Ilce">
+        <MappingFragment StoreEntitySet="Ilce">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KanGrup">
+      <EntityTypeMapping TypeName="CalisanDB2Model.KanGrup">
+        <MappingFragment StoreEntitySet="KanGrup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sehir">
+      <EntityTypeMapping TypeName="CalisanDB2Model.Sehir">
+        <MappingFragment StoreEntitySet="Sehir">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CalisanDB2Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unvan">
+      <EntityTypeMapping TypeName="CalisanDB2Model.Unvan">
+        <MappingFragment StoreEntitySet="Unvan">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

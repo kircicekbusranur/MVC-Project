@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4b7eb07ee66843b5bdb97e1e31426582" Name="Diagram1">
+        <EntityTypeShape EntityType="CosmeCriticDBModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeCriticDBModel.AltKategoriler" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeCriticDBModel.Kategoriler" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeCriticDBModel.Markalar" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeCriticDBModel.OzellikDetay" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeCriticDBModel.Resimler" Width="1.5" PointX="9.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeCriticDBModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeCriticDBModel.Urunler" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeCriticDBModel.UrunPuan" Width="1.5" PointX="9.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeCriticDBModel.UrunYorum" Width="1.5" PointX="12.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeCriticDBModel.UyeFavoriListe" Width="1.5" PointX="9.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CosmeCriticDBModel.Uyeler" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="CosmeCriticDBModel.FK_dbo_AltKategoriler_dbo_Kategoriler_KategoriId" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeCriticDBModel.FK_dbo_AltKategoriler_dbo_Markalar_Markalar_MarkaID" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeCriticDBModel.FK_dbo_Urunler_dbo_AltKategoriler_AltKategoriId" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeCriticDBModel.FK_dbo_Kategoriler_dbo_Markalar_Markalar_MarkaID" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeCriticDBModel.FK_dbo_Urunler_dbo_Kategoriler_Kategoriler_KategoriID" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeCriticDBModel.FK_dbo_Urunler_dbo_Markalar_MarkaId" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeCriticDBModel.FK_dbo_Resimler_dbo_Urunler_UrunId" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeCriticDBModel.FK_dbo_UrunPuan_dbo_Urunler_UrunId" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeCriticDBModel.FK_dbo_UrunYorum_dbo_Urunler_UrunId" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeCriticDBModel.FK_dbo_UyeFavoriListe_dbo_Urunler_UrunId" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeCriticDBModel.FK_dbo_UrunPuan_dbo_Uyeler_UyeId" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeCriticDBModel.FK_dbo_UrunYorum_dbo_Uyeler_UyeId" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeCriticDBModel.FK_dbo_UyeFavoriListe_dbo_Uyeler_UyeId" ManuallyRouted="false" />
+        <AssociationConnector Association="CosmeCriticDBModel.UrunOzellik" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
